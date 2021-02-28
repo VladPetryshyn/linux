@@ -1,0 +1,83 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+snippet rcc "react class component"
+import React from "react"
+import PropTypes from "prop-types"
+
+class ${0:${VISUAL}} {
+    render() {
+        return <> </>
+    }
+}
+
+${0:${VISUAL}}.propTypes = {}
+
+export default ${0:${VISUAL}}
+endsnippet
+
+snippet rfcs "react functional component with state"
+import React, {useState} from "react"
+import PropTypes from "prop-types"
+
+export default function ${1:${VISUAL}}({}) {
+    const [${2:${VISUAL}}, ${3:${VISUAL}}] = useState(${4:${VISUAL}})
+
+    return <> </>
+}
+
+${1:${VISUAL}}.propTypes = {}
+endsnippet
+
+snippet rfc "react functional component"
+import React from "react"
+import PropTypes from "prop-types"
+
+const ${1:${VISUAL}} = () => (
+${2:${VISUAL}}
+)
+
+${1:${VISUAL}}.propTypes = {}
+export default ${1:${VISUAL}}
+endsnippet
+
+snippet state "state"
+const [${1:${VISUAL}}, ${2:${VISUAL}}] = useState(${3:${VISUAL}})
+endsnippet
+
+snippet effect "effect"
+useEffect(() => {
+}, [${0:${VISUAL}}])
+endsnippet
+
+snippet func "function"
+function ${0:${VISUAL}}() {
+}
+endsnippet
+
+snippet imp "import"
+import ${1:${VISUAL}} from "${2:${VISUAL}}"
+endsnippet
+

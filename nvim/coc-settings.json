@@ -1,0 +1,66 @@
+{
+  "codeLens.enable": true,
+  "snippets.extends": {
+    "cpp": ["c"],
+    "javascriptreact": ["javascript"],
+    "typescriptreact": ["typescript", "javascript"]
+  },
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": "",
+  "snippets.autoTrigger": true,
+  "snippets.ultisnips.enable": true,
+  "eslint.packageManager": "npm",
+  "eslint.codeAction.showDocumentation": {
+    "enable": true
+  },
+  "coc.preferences.hoverTarget": "preview",
+  "json.enable": true,
+  "json.format.enable": true,
+  "coc.preferences.formatOnTypeFiletypes": ["graphql", "css", "sass", "scss", "javascript", "javascriptreact"],
+  "eslint.run":"onType",
+  "eslint.autoFixOnSave": true,
+  "coc.preferences.formatOnSaveFiletypes": ["css", "sass", "scss", "typescript", "typescriptreact", "javascript", "javascriptreact"],
+  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "explorer.width": 30,
+  "explorer.icon.enableNerdfont": true,
+  "explorer.previewAction.onHover": false,
+  "explorer.keyMappings.global": {
+    "<cr>": ["expandable?", "expand", "open"],
+    "v": "open:vsplit",
+    "d": "delete",
+    "e": false,
+    "o": ["expandable?", "expand", "open"],
+    "u": ["collapse"]
+  },
+  "explorer.quitOnOpen": true,
+  "javascript.format.enabled": true,
+  "list.insertMappings": {
+    "<C-x>": "action:split",
+    "<C-v>": "action:vsplit"
+  },
+  "list.normalMappings": {
+    "s": "action:split",
+    "v": "action:vsplit"
+  },
+  "tsserver.enableJavascript": true,
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.promptInput": true,
+  "tsserver.enable": true,
+  "coc.preferences.colorSupport": true,
+  "emmet.excludeLanguages": [
+    "markdown",
+    "typescript"
+  ],
+  "coc.preferences.formatOnType": true,
+  "tsserver.formatOnType": true,
+  "html.format.enable": true,
+  "explorer.buffer.showHiddenBuffers": true,
+  "explorer.file.showHiddenFiles": true,
+  "tsserver.disableAutomaticTypeAcquisition": true,
+  "typescript.format.enabled": true,
+  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
+}

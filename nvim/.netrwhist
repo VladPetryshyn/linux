@@ -1,0 +1,12 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhistcnt =9
+let g:netrw_dirhist_9='/home/vlad/Документы/work/vv_new_front/src'
+let g:netrw_dirhist_8='/home/vlad/Документы/work/vv_new_front'
+let g:netrw_dirhist_7='/home/vlad/Документы/work/vv_new_front/src'
+let g:netrw_dirhist_6='/home/vlad/Документы/work/vv_new_front'
+let g:netrw_dirhist_5='/home/vlad/Документы/learn/patterns/behavior'
+let g:netrw_dirhist_4='/home/vlad/Документы/learn/patterns'
+let g:netrw_dirhist_3='/home/vlad/Документы/work/vv_new_front'
+let g:netrw_dirhist_2='/home/vlad/Документы/projects/ToDoIt'
+let g:netrw_dirhist_1='/home/vlad/Документы/work/vv_new_front/src'
+let g:netrw_dirhist_0='/home/vlad/Документы/work/vv_new_front'
