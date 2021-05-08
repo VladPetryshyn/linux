@@ -1,13 +1,14 @@
-syntax enable
-set background=dark
-let g:material_terminal_italics = 1
-let g:material_theme_style = 'ocean-community'
-
-colorscheme material
-
 if (has("termguicolors"))
         set termguicolors
 endif
+
+syntax enable
+" set background=dark
+let g:material_terminal_italics = 1
+let g:material_theme_style = 'ocean-community'
+let ayucolor = "light"
+
+colorscheme material
 
 if (has('nvim'))
   let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
@@ -49,3 +50,6 @@ let g:webdevicons_enable_airline_statusline = 1
 let g:webdevicons_enable_ctrlp = 1
 let g:webdevicons_enable_startify = 1
 let g:airline_section_z = 0
+
+let g:airline#extensions#tabline#formatter = 'unique_tail'
+

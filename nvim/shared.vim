@@ -39,3 +39,5 @@ augroup FiletypeGroup
     autocmd!
     au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 augroup END
+
+let g:javascript_plugin_jsdoc = 1

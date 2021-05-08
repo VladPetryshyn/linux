@@ -15,7 +15,7 @@ export ZSH="/home/vlad/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="powerlevel10k/powerlevel10k"
+ZSH_THEME="bira"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,7 +75,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux docker dotenv fzf man node npm npx pip postgres pylint react-native sudo yarn zsh-completions zsh-autosuggestions)
+plugins=(git archlinux docker dotenv fzf man node npm pip postgres pylint react-native sudo yarn zsh-completions zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -112,7 +112,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 
-alias tmuxcheatsheet="brave https://tmuxcheatsheet.com/"
+# alias tmuxcheatsheet="chromium https://tmuxcheatsheet.com/"
 alias mux='pgrep -vx tmux > /dev/null && \
 		tmux new -d -s delete-me && \
 		tmux run-shell ~/.tmux/plugins/tmux-resurrect/scripts/restore.sh && \
@@ -125,13 +125,21 @@ alias images='cd ~/Изображения'
 alias clock-start='clockify-cli in -i'
 alias clock-stop='clockify-cli out'
 alias clock-repeat='clockify-cli clone last'
+# alias yad = "yarn add"
+# alias yadd = 'yarn add -D'
+# alias nps = 'npm run start'
+# alias npi = 'npm install'
+# alias npid = 'npm install -D'
+# alias pns = 'pnpm run start'
+# alias pna = 'pnpm add'
+# alias pnad = 'pnpm add -D'
+# alias pac = "pacman"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
-neofetch
 export GO111MODULE=on
 
 GO111MODULE="on"
@@ -161,10 +169,12 @@ bindkey -a 'h' vi-forward-word-end
 bindkey -a 'H' vi-forward-blank-word-end
 bindkey -a 'l' vi-open-line-below
 bindkey -a 'L' vi-open-line-above
+
 if type rg &> /dev/null; then
   export FZF_DEFAULT_COMMAND='rg --files'
   export FZF_DEFAULT_OPTS='-m --height 50% --border'
 fi
+
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

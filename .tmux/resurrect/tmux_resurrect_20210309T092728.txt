@@ -1,0 +1,5 @@
+pane	0	1	:nvim	1	:*	1	:/home/vlad/Документы/work/vv_new_front	1	nvim	:nvim
+pane	0	2	:./xmr-stak-rx	0	:-	1	:/home/vlad/Загрузки/xmr-stak-rx-linux-1.0.5-cpu\ (1)/xmr-stak-rx-linux-1.0.5-cpu	1	./xmr-stak-rx	:./xmr-stak-rx --noTest
+window	0	1	1	:*	b33e,134x32,0,0,1
+window	0	2	0	:-	b345,134x32,0,0,8
+state	0	

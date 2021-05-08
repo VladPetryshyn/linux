@@ -1,30 +1,39 @@
 {
   "codeLens.enable": true,
-  "snippets.extends": {
-    "cpp": ["c"],
-    "javascriptreact": ["javascript"],
-    "typescriptreact": ["typescript", "javascript"]
-  },
-  "diagnostic.errorSign": "✘",
-  "diagnostic.warningSign": "",
-  "diagnostic.infoSign": "",
-  "snippets.autoTrigger": true,
-  "snippets.ultisnips.enable": true,
-  "eslint.packageManager": "npm",
-  "eslint.codeAction.showDocumentation": {
-    "enable": true
-  },
-  "coc.preferences.hoverTarget": "preview",
-  "json.enable": true,
-  "json.format.enable": true,
-  "coc.preferences.formatOnTypeFiletypes": ["graphql", "css", "sass", "scss", "javascript", "javascriptreact"],
-  "eslint.run":"onType",
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "coc.preferences.formatOnType": true,
+  "coc.preferences.willSaveHandlerTimeout": 1000,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "c",
+    "go",
+    "python",
+    "markdown",
+    "javascript",
+    "typescript",
+    "json",
+    "jsonc"
+  ],
+  "coc.source.around.firstMatch": false,
+  "coc.source.file.ignoreHidden": false,
+  "_diagnostic.format": "%message [%source]",
+  "_diagnostic.virtualText": true,
+  "_diagnostic.checkCurrentLine": true,
+  "_diagnostic.separateRelatedInformationAsDiagnostics": true,
+  "_diagnostic.enableMessage": "never",
+  "_diagnostic.virtualTextLines": 3,
   "eslint.autoFixOnSave": true,
-  "coc.preferences.formatOnSaveFiletypes": ["css", "sass", "scss", "typescript", "typescriptreact", "javascript", "javascriptreact"],
-  "snippets.userSnippetsDirectory": "~/.config/nvim/snips",
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact"
-  },
+  "eslint.format.enable": true,
+  "eslint.packageManager": "yarn",
+  "explorer.file.showHiddenFiles": true,
+  "explorer.icon.enableVimDevicons": true,
+  "explorer.git.icon.rootStatus.stashed": " ",
+  "explorer.git.icon.rootStatus.ahead": "⇡",
+  "explorer.git.icon.rootStatus.behind": "⇣",
+  "explorer.git.icon.rootStatus.conflicted": " ",
+  "explorer.git.icon.status.added": "",
+  "explorer.git.icon.rootStatus.added": "",
+  "explorer.git.icon.status.renamed": "➥",
+  "tsserver.enableJavascript": true,
   "explorer.width": 30,
   "explorer.icon.enableNerdfont": true,
   "explorer.previewAction.onHover": false,
@@ -38,6 +47,7 @@
   },
   "explorer.quitOnOpen": true,
   "javascript.format.enabled": true,
+  "typescript.format.enabled": true,
   "list.insertMappings": {
     "<C-x>": "action:split",
     "<C-v>": "action:vsplit"
@@ -46,21 +56,12 @@
     "s": "action:split",
     "v": "action:vsplit"
   },
-  "tsserver.enableJavascript": true,
-  "coc.preferences.extensionUpdateCheck": "daily",
-  "coc.preferences.promptInput": true,
-  "tsserver.enable": true,
-  "coc.preferences.colorSupport": true,
+  "tsserver.formatOnType": true,
   "emmet.excludeLanguages": [
     "markdown",
     "typescript"
   ],
-  "coc.preferences.formatOnType": true,
-  "tsserver.formatOnType": true,
-  "html.format.enable": true,
-  "explorer.buffer.showHiddenBuffers": true,
-  "explorer.file.showHiddenFiles": true,
-  "tsserver.disableAutomaticTypeAcquisition": true,
-  "typescript.format.enabled": true,
-  "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "",
+  "diagnostic.infoSign": ""
 }

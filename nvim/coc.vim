@@ -80,19 +80,17 @@ let g:coc_explorer_global_presets = {
 autocmd BufEnter * if (winnr("$") == 1 && &filetype == 'coc-explorer') | q | endif
 
 
-" nnoremap <silent> E :call <SID>show_documentation()<CR>
-
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocActionAsync('doHover')
+"   endif
+" endfunction
+"
 " function! s:show_hover_doc()
 "   call timer_start(500, 'show_documentation')
 " endfunction
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocActionAsync('doHover')
-  endif
-endfunction
 
 
 " autocmd CursorHoldI * :call <SID>show_hover_doc()
@@ -103,5 +101,19 @@ endfunction
 
 command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -bar Prettier :CocCommand prettier.formatFile
+command! -bar Eslint :call CocAction('runCommand', 'eslint.executeAutofix')
+command! Form Eslint|w
+
 autocmd User CocExplorerOpenPost call <SID>opened_explorer()
+"
+" function! s:formating()
+"       let isFile = 0
+"       if isdirectory(getcwd() . "/node_modules/eslint")
+"             autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Eslint
+"       else 
+"             autocmd InsertLeave *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html Prettier
+"       endif
+" endfunction
+"
+" autocmd FileType *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html call formating()

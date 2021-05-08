@@ -7,13 +7,13 @@ RFILE="$HOME/.config/polybar/docky/scripts/rofi/colors.rasi"
 # Change colors
 change_color() {
 	# polybar
-	sed -i -e 's/background = #.*/background = #1F1F1F/g' $PFILE
+	sed -i -e 's/background = #.*/background = #000000/g' $PFILE
 	sed -i -e 's/foreground = #.*/foreground = #FFFFFF/g' $PFILE
 	sed -i -e 's/foreground-alt = #.*/foreground-alt = #8F8F8F/g' $PFILE
 	sed -i -e "s/module-fg = #.*/module-fg = $MF/g" $PFILE
 	sed -i -e "s/primary = #.*/primary = $AC/g" $PFILE
-	sed -i -e 's/secondary = #.*/secondary = #E53935/g' $PFILE
-	sed -i -e 's/alternate = #.*/alternate = #7cb342/g' $PFILE
+	sed -i -e 's/secondary = #.*/secondary = #ff0000/g' $PFILE
+	sed -i -e 's/alternate = #.*/alternate = #ffffff/g' $PFILE
 	
 	# rofi
 	cat > $RFILE <<- EOF
@@ -98,7 +98,7 @@ elif  [[ $1 = "--purple" ]]; then
 	change_color
 elif  [[ $1 = "--red" ]]; then
 	MF="#FFFFFF"
-	AC="#e53935"
+	AC="#ff0000"
 	change_color
 elif  [[ $1 = "--teal" ]]; then
 	MF="#FFFFFF"

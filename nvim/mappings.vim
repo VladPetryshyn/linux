@@ -126,7 +126,7 @@ nnoremap gdh :diffget //2<CR>
 nnoremap gdl :diffget //3<CR>
 nnoremap gs :G <CR>
 map gb :GBranches
-silent! nmap <C-P> :GFiles<CR>
+silent! nmap <C-P> :Files<CR>
 nnoremap <leader>gc :GBranches<CR>
 nmap <leader>gh :diffget //3<CR>
 nmap <leader>gu :diffget //2<CR>

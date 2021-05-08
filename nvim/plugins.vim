@@ -5,10 +5,22 @@
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ${XDG_CONFIG_HOME:-$HOME/.config}/nvim/autoload/plug.vim
 	autocmd VimEnter * PlugInstall
 endif
+
  
 call plug#begin("~/.vim/plugged")
 " Plugin Section
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+if has('nvim')
+  Plug 'Shougo/denite.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/denite.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+Plug 'joshdick/onedark.vim'
+Plug 'mattn/calendar-vim'
+Plug 'jceb/vim-orgmode'
+Plug 'ayu-theme/ayu-vim'
 " Plug 'psliwka/vim-smoothie'
 Plug 'norcalli/nvim-colorizer.lua'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
@@ -24,7 +36,6 @@ Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'ianding1/leetcode.vim'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
-Plug 'dart-lang/dart-vim-plugin'
 Plug 'chun-yang/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -35,10 +46,8 @@ Plug 'wikitopian/hardmode'
 Plug 'xolox/vim-session'
 Plug 'xolox/vim-misc'
 Plug 'mhinz/vim-startify'
-Plug 'nvie/vim-flake8'
 Plug 'metakirby5/codi.vim'
 Plug 'iamcco/markdown-preview.nvim'
-Plug 'vim-scripts/indentpython.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -54,8 +63,8 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'herringtondarkholme/yats.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'jparise/vim-graphql'
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+" Plug 'jparise/vim-graphql'
 Plug 'alvan/vim-closetag'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
@@ -70,5 +79,9 @@ Plug 'morhetz/gruvbox'
 Plug 'jacoborus/tender.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'justinmk/vim-sneak'
+Plug 'heavenshell/vim-jsdoc', { 
+  \ 'for': ['javascript', 'javascript.jsx','typescript'], 
+  \ 'do': 'make install'
+\}
 call plug#end()
 
