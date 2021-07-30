@@ -97,9 +97,13 @@ augroup common
   autocmd FileType lua setlocal include=require
   autocmd FileType lua setlocal define=function
   autocmd FileType markdown setlocal suffixesadd=.md
+  autocmd FileType text,org setlocal tabstop=2 softtabstop=2 shiftwidth=2
   autocmd FileType make set noexpandtab shiftwidth=4 softtabstop=0
   autocmd FileType crontab setlocal nobackup nowritebackup
   autocmd FileType lua,ruby,html,javascript,typescript,css,json,vue,vim,yaml setlocal shiftwidth=2 tabstop=2
+
+  autocmd! User GoyoEnter Limelight
+  autocmd! User GoyoLeave Limelight!
 
   autocmd CompleteDone * if pumvisible() == 0 | pclose | endif
   autocmd BufReadPost *.log normal! G

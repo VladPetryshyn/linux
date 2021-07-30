@@ -135,11 +135,6 @@ nmap <leader>gs :G<CR>
 " folding
 nnoremap <space> za
 
-map <Up> <nop>
-map <Down> <nop>
-map <Left> <nop>
-map <Right> <nop>
-
 set wildcharm=<C-Z>
 cnoremap <expr> <up> wildmenumode() ? "\<left>" : "\<up>"
 cnoremap <expr> <down> wildmenumode() ? "\<right>" : "\<down>"

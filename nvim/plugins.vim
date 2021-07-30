@@ -17,29 +17,21 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
-Plug 'joshdick/onedark.vim'
-Plug 'mattn/calendar-vim'
 Plug 'jceb/vim-orgmode'
-Plug 'ayu-theme/ayu-vim'
 " Plug 'psliwka/vim-smoothie'
 Plug 'norcalli/nvim-colorizer.lua'
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
-Plug 'artanikin/vim-synthwave84'
 Plug 'liuchengxu/vista.vim'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'mattn/webapi-vim'
-Plug 'mattn/vim-gist/'
 Plug 'AndrewRadev/tagalong.vim'
 Plug 'mbbill/undotree'
 Plug 'mg979/vim-visual-multi', {'branch': 'master'}
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'ianding1/leetcode.vim'
 Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 Plug 'chun-yang/auto-pairs'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'connorholyday/vim-snazzy'
 Plug 'tmhedberg/SimpylFold'
 Plug 'wikitopian/hardmode'
@@ -79,9 +71,16 @@ Plug 'morhetz/gruvbox'
 Plug 'jacoborus/tender.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'justinmk/vim-sneak'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'heavenshell/vim-jsdoc', { 
   \ 'for': ['javascript', 'javascript.jsx','typescript'], 
   \ 'do': 'make install'
 \}
+Plug 'farmergreg/vim-lastplace'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 call plug#end()
 
