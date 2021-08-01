@@ -1,7 +1,6 @@
-set foldmethod=expr
-set foldexpr=nvim_treesitter#foldexpr()
+local o = vim.o
+o.foldmethod="expr"
 
-lua <<EOF
 require'nvim-treesitter.configs'.setup {
 ensure_installed = { "css", "javascript", "typescript", "html" },
  indent = {
@@ -13,4 +12,3 @@ ensure_installed = { "css", "javascript", "typescript", "html" },
     disable = { "c", "rust" },  -- list of language that will be disabled
   },
 }
-EOF
