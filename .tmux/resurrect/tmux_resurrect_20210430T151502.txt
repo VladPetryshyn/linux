@@ -1,5 +1,0 @@
-pane	0	1	:nvim	0	:##-	1	:/home/vlad/Документы/work/vv_new_front	1	nvim	:nvim
-pane	0	2	:zsh	1	:*	1	:/home/vlad/Документы/work/vv_new_front	1	zsh	:
-window	0	1	0	:##-	b33d,134x32,0,0,0
-window	0	2	1	:*	b343,134x32,0,0,6
-state	0	

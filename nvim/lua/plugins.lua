@@ -1,5 +1,5 @@
-local programmingft = {'javascript', 'sh', 'typescript', 'python', 'zsh', 'javascriptreact', 'typescriptreact', 'html', 'lua' }
-local writingft = { 'text', 'markdown', 'off' }
+local programmingft = {'javascript', 'sh', 'typescript', 'python', 'zsh', 'javascriptreact', 'typescriptreact', 'html', 'lua', 'go' }
+local writingft = { 'text', 'markdown', 'off', 'org' }
 
 return require('packer').startup(function()
   use 'wbthomason/packer.nvim'
@@ -16,7 +16,6 @@ return require('packer').startup(function()
     ft=programmingft,
     config = function() require'plugs/treesitter' end,
   }
-  use {'kyazdani42/nvim-web-devicons'}
   use {
     'lewis6991/gitsigns.nvim',
      config = function() require 'plugs/gitsigns' end,
@@ -47,13 +46,11 @@ return require('packer').startup(function()
   use {'mhinz/vim-startify', config = function() require 'plugs/startify' end}
   use {'junegunn/goyo.vim', ft = writingft }
   use {'tpope/vim-fugitive'}
-  use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
+  -- use { 'alvarosevilla95/luatab.nvim', requires='kyazdani42/nvim-web-devicons' }
   use {
     'glepnir/galaxyline.nvim',
       branch = 'main',
-      -- your statusline
       config = function() require'plugs/line' end,
-      -- some optional icons
       requires = {'kyazdani42/nvim-web-devicons', opt = true}
   }
   use { 'norcalli/nvim-colorizer.lua', config = function() require 'plugs/colorizer' end }
@@ -62,4 +59,25 @@ return require('packer').startup(function()
     ft = programmingft,
     config = function() require 'plugs/maximizer' end
   }
+  use {'farmergreg/vim-lastplace'}
+  use { 'jceb/vim-orgmode', ft = { 'org' } }
+  use {
+      'glacambre/firenvim',
+      run = function() vim.fn['firenvim#install'](0) end ,
+      config = function() require 'plugs/firenvim' end
+  }
+  use {
+    'akinsho/nvim-bufferline.lua', 
+    config = function() require 'plugs/bufferline' end,
+    requires = 'kyazdani42/nvim-web-devicons',
+  }
+  use {'ayu-theme/ayu-vim'}
+  --use {'neovim/nvim-lspconfig', config = function() require 'plugs/lspconfig' end}
+  --use {'romgrk/barbar.nvim'}
+  --use {'glepnir/lspsaga.nvim', config = function() require 'plugs/lspsaga' end}
+  --use {'nvim-lua/completion-nvim', config = function() require 'plugs/completion' end}
+  -- use {
+  --   'fatih/vim-go',
+  --   ft = {'go'}
+  -- }
 end)

@@ -18,8 +18,10 @@ map('n', 'j', "(v:count == 0 ? 'gj' : 'j')", { noremap = true, expr = true })
 map('n', 'k', "(v:count == 0 ? 'gk' : 'k')", { noremap = true, expr = true })
 
 
-map('n', 'R', ':tabprev<CR>', options)
-map('n', 'W', ':tabnext<CR>', options)
+map('n', 'R', ':BufferLineCyclePrev<CR>', options)
+map('n', 'W', ':BufferLineCycleNext<CR>', options)
+-- map('n', 'R', ':tabprev<CR>', options)
+-- map('n', 'W', ':tabnext<CR>', options)
 map('', '<C-a', 'ggVG<CR>', options)
 
 -- map('v', '<leader>a')
@@ -86,5 +88,6 @@ nnoremap <silent>    <A-7> :BufferGoto 7<CR>
 nnoremap <silent>    <A-8> :BufferGoto 8<CR>
 nnoremap <silent>    <A-9> :BufferLast<CR>
 " Close buffer
-nnoremap <silent>    <leader>q :BufferClose<CR>
+nnoremap <silent>    <leader>q :bd<CR>
 ]])
+map("n", "<leader>gs", ":G<CR>", {})

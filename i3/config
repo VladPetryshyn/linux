@@ -1,6 +1,6 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
+exec "xrandr --output HDMI1 --auto --right-of eDP1"
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
@@ -15,8 +15,10 @@ client.background       #F8F8F2
 # workspace_layout tabbed <stacking|tabbed>
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 0
+default_floating_border pixel 0
+
+for_window [class="^.*"] border pixel 0
 
 # Hide borders
 hide_edge_borders none
@@ -34,7 +36,7 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+x kill
@@ -58,8 +60,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 ################################################################################################
 
 # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -70,8 +72,8 @@ bindsym $mod+Shift+F3 exec pcmanfm_pkexec
 bindsym $mod+F5 exec terminal -e 'mocp'
 bindsym $mod+t exec --no-startup-id pkill picom
 bindsym $mod+Ctrl+t exec --no-startup-id picom -b
-bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
-bindsym Print exec --no-startup-id spectacle
+# bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart dunst'"
+bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
@@ -280,8 +282,6 @@ bindsym $mod+9 exec --no-startup-id blurlock
 
 # Autostart applications
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec --no-startup-id nitrogen --restore; sleep 1; 
-exec --no-startup-id manjaro-hello
 exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
@@ -326,7 +326,7 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
-exec_always --no-startup-id ~/.config/polybar/launch.sh --docky
+exec_always --no-startup-id ~/.config/i3/polybar-run.sh
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 # bar {
@@ -356,7 +356,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh --docky
 # }
 
 # hide/unhide i3status bar
-bindsym $mod+m bar mode toggle
+# bindsym $mod+m bar mode toggle
 
 # Theme colors
 #############################
@@ -366,6 +366,7 @@ bindsym $mod+m bar mode toggle
 # Set inner/outer gaps
 gaps inner 14
 gaps outer -2
+gaps top 40
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -417,22 +418,35 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-
-exec_always picom --config ~/.config/compton/compton.conf
+exec_always --no-startup-id picom --blur-background --opacity-rule 55:'class_g="st"' --backend glx
 exec_always xset b off
 
-exec_always "setxkbmap -model pc104 -layout us,ru -variant workman,os_winkeys -option grp:alt_shift_toggle"
-exec_always "pkill redshift"
-exec_always "redshift -t 6500:3000 -b 1.0:0.8"
-
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-exec_always "syncthing"
+bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
+bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+exec "syncthing -no-browser"
 exec "modprobe soundcore"
-exec_always "rescuetime"
-exec_always "redshift -l 50.43464715628594:30.557258777949553"
 
 for_window [class=alacritty instance="__text_scratchpad"] floating enable
 
-bindsym $mod+g exec sh ~/.dotfiles/i3/scratchpad.sh
+default_border pixel 1
+default_floating_border pixel 1
+
+
+# exec_always "pkill redshift"
+# exec_always "redshift -t 6500:3000 -b 1.0:0.8"
+
+exec xinput set-prop 10 311 1
+exec "setxkbmap -layout us,ru -variant workman,os_winkeys -option grp:alt_shift_toggle"
+exec "xmodmap -e 'clear Lock'"
+exec "aw-server"
+
+exec --no-startup-id nitrogen --restore; sleep 1; 
+exec redshift -l 50.43650097867089:30.555975172120355 -t 6500:5000 -b 1.0:0.8
+exec "kdeconnect-indicator"
+
+
+bindsym $mod+p exec "export PASSWORD_STORE_DIR=/home/vlad/.config/passwords; passmenu"
+bindsym $mod+Shift+d exec "~/.config/i3/day.sh"
+bindsym $mod+Shift+m exec "~/.config/i3/night.sh"
+bindsym $mod+g exec ~/.vim-anywhere/bin/run
+bindsym $mod+m exec networkmanager_dmenu

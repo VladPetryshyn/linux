@@ -4,12 +4,14 @@ if vim.fn.has('termguicolors') == 1 then
     o.termguicolors = true
 end
 vim.cmd('syntax enable')
-colors = 'light'
+vim.cmd("let ayucolor='dark'")
+colors = 'dark'
 o.background=colors
 vim.g.material_terminal_italics = 1
 vim.g.material_theme_style = 'ocean-community'
 
 vim.cmd('colorscheme gruvbox')
+vim.cmd('autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE')
 
 -- vim.api.nvim_exec([[
 -- if vim.fn.has('nvim') == 1 then
@@ -19,7 +21,9 @@ vim.cmd('colorscheme gruvbox')
 if vim.fn.has('termguicolors') == 1 then
         vim.cmd('set termguicolors')
 end
-
+vim.g.bufferline = {
+  auto_hide = false
+}
 -- airline
 
 -- vim.cmd('let g:airline#extensions#tabline#enabled = 0')

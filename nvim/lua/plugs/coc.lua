@@ -30,7 +30,7 @@ if (has('nvim'))
 endif
 ]], false)
 
-vim.g.coc_global_extensions = { 'coc-eslint', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-tsserver', 'coc-snippets', 'coc-json', 'coc-prettier' }
+vim.g.coc_global_extensions = { 'coc-eslint', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-tsserver', 'coc-snippets', 'coc-json', 'coc-prettier', 'coc-go' }
 
 u.create_augroup({
   {'FileType', 'typescript,json', 'setl', "formatexpr=CocAction('formatSelected')"},
@@ -90,3 +90,5 @@ vim.cmd('nmap <silent> gd <Plug>(coc-definition)')
 vim.cmd('nmap <silent> gy <Plug>(coc-type-definition)')
 vim.cmd('nmap <silent> gi <Plug>(coc-implementation)')
 vim.cmd('nmap <silent> gr <Plug>(coc-references)')
+
+vim.cmd("autocmd BufWritePre *.go :silent call CocAction('runCommand', 'editor.action.organizeImport')")

@@ -16,7 +16,10 @@
     "javascriptreact",
     "typescriptreact",
     "json",
-    "graphql"
+    "graphql",
+    "css",
+    "scss",
+    "sass"
   ],
   "coc.source.around.firstMatch": false,
   "coc.source.file.ignoreHidden": false,

@@ -15,7 +15,7 @@ export ZSH="/home/vlad/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="bira"
+ZSH_THEME="sobole"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -75,7 +75,7 @@ ZSH_THEME="bira"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux docker dotenv fzf man node npm pip postgres pylint react-native sudo yarn zsh-completions zsh-autosuggestions)
+plugins=(git archlinux docker dotenv fzf man node npm pip postgres pylint react-native sudo yarn zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -88,7 +88,6 @@ source $ZSH/oh-my-zsh.sh
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
@@ -104,9 +103,8 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-source /home/vlad/Загрузки/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
-export ANDROID_HOME=$HOME/Android/Sdk
+export ANDROID_HOME=$HOME/.config/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
@@ -176,5 +174,21 @@ if type rg &> /dev/null; then
 fi
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
+alias ls="lsd"
+alias neofetch="pfetch | lolcat"
+alias htop="htop | lolcat"
+alias upgrade="sudo pacman -Su --ignore=node"
+alias cleanclip="touch /tmp/blank; xclip -selection clipboard /tmp/blank; rm /tmp/blank"
+alias heroku="npx heroku"
+eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export BAT_THEME="gruvbox-light"
+
+export EDITOR='nvim'
+export PASSWORD_STORE_DIR=/home/vlad/.config/passwords
+# nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

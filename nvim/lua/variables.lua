@@ -20,4 +20,4 @@ vim.g.bettercomments_language_aliases = { javascript = 'js' }
 -- let $FZF_DEFAULT_COMMAND = 'ag -g ""'
 -- let $FZF_DEFAULT_OPTS = '--reverse'
 vim.g.loaded_netrw = 1
-vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
+-- vim.o.tabline = '%!v:lua.require\'luatab\'.tabline()'
