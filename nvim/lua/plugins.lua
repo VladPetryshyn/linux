@@ -72,6 +72,9 @@ return require('packer').startup(function()
     requires = 'kyazdani42/nvim-web-devicons',
   }
   use {'ayu-theme/ayu-vim'}
+
+  use {'dracula/vim'}
+
   --use {'neovim/nvim-lspconfig', config = function() require 'plugs/lspconfig' end}
   --use {'romgrk/barbar.nvim'}
   --use {'glepnir/lspsaga.nvim', config = function() require 'plugs/lspsaga' end}

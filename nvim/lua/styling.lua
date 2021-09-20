@@ -10,8 +10,8 @@ o.background=colors
 vim.g.material_terminal_italics = 1
 vim.g.material_theme_style = 'ocean-community'
 
-vim.cmd('colorscheme gruvbox')
-vim.cmd('autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE')
+vim.cmd('colorscheme dracula')
+-- vim.cmd('autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE')
 
 -- vim.api.nvim_exec([[
 -- if vim.fn.has('nvim') == 1 then

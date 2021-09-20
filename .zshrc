@@ -75,7 +75,7 @@ ZSH_THEME="sobole"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git archlinux docker dotenv fzf man node npm pip postgres pylint react-native sudo yarn zsh-completions zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(git archlinux docker dotenv fzf man node npm pip postgres pylint react-native sudo yarn zsh-completions zsh-autosuggestions zsh-syntax-highlighting golang)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -179,7 +179,10 @@ alias neofetch="pfetch | lolcat"
 alias htop="htop | lolcat"
 alias upgrade="sudo pacman -Su --ignore=node"
 alias cleanclip="touch /tmp/blank; xclip -selection clipboard /tmp/blank; rm /tmp/blank"
-alias heroku="npx heroku"
+alias backsmali="java -jar ~/Downloads/Tools/baksmali.jar"
+alias sign="java -jar ~/Downloads/Tools/sign.jar"
+alias dx="/home/vlad/.config/Android/Sdk/build-tools/29.0.2/dx"
+alias javac="javac -classpath /home/vlad/.config/Android/Sdk/platforms/android-29/android.jar"
 eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

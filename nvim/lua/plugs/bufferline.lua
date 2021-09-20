@@ -31,7 +31,7 @@ require("bufferline").setup{
     max_name_length = 18,
     max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
     tab_size = 18,
-    diagnostics = false,
+    diagnostics = coc,
     -- NOTE: this will be called a lot so don't do any heavy processing here
     custom_filter = function(buf_number)
       -- filter out filetypes you don't want to see
@@ -54,7 +54,7 @@ require("bufferline").setup{
     show_close_icon = false,
     show_tab_indicators = false,
     persist_buffer_sort = true,
-    separator_style = "thin",
+    separator_style = "slant",
     enforce_regular_tabs = true,
     always_show_bufferline = true,
     sort_by = 'id'
