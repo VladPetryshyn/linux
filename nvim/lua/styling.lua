@@ -1,5 +1,7 @@
 local o = vim.o
 
+o.tabline = '%!v:lua.require\'luatab\'.tabline()'
+
 if vim.fn.has('termguicolors') == 1 then
     o.termguicolors = true
 end
@@ -8,9 +10,10 @@ vim.cmd("let ayucolor='dark'")
 colors = 'dark'
 o.background=colors
 vim.g.material_terminal_italics = 1
-vim.g.material_theme_style = 'ocean-community'
+vim.g.tokyonight_style = "night"
+-- vim.g.material_theme_style = 'ocean-community'
 
-vim.cmd('colorscheme dracula')
+vim.cmd('colorscheme tokyonight')
 -- vim.cmd('autocmd vimenter * hi Normal guibg=NONE ctermbg=NONE')
 
 -- vim.api.nvim_exec([[
@@ -18,9 +21,6 @@ vim.cmd('colorscheme dracula')
 -- $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 -- end
 -- ]], false)
-if vim.fn.has('termguicolors') == 1 then
-        vim.cmd('set termguicolors')
-end
 vim.g.bufferline = {
   auto_hide = false
 }

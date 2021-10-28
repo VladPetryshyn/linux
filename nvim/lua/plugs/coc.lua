@@ -30,7 +30,7 @@ if (has('nvim'))
 endif
 ]], false)
 
-vim.g.coc_global_extensions = { 'coc-eslint', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-tsserver', 'coc-snippets', 'coc-json', 'coc-prettier', 'coc-go' }
+vim.g.coc_global_extensions = { 'coc-eslint', 'coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-tsserver', 'coc-snippets', 'coc-json', 'coc-prettier', 'coc-go', 'coc-git' }
 
 u.create_augroup({
   {'FileType', 'typescript,json', 'setl', "formatexpr=CocAction('formatSelected')"},

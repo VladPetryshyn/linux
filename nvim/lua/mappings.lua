@@ -18,8 +18,8 @@ map('n', 'j', "(v:count == 0 ? 'gj' : 'j')", { noremap = true, expr = true })
 map('n', 'k', "(v:count == 0 ? 'gk' : 'k')", { noremap = true, expr = true })
 
 
-map('n', 'R', ':BufferLineCyclePrev<CR>', options)
-map('n', 'W', ':BufferLineCycleNext<CR>', options)
+map('n', 'R', ':tabprev<CR>', options)
+map('n', 'W', ':tabnext<CR>', options)
 -- map('n', 'R', ':tabprev<CR>', options)
 -- map('n', 'W', ':tabnext<CR>', options)
 map('', '<C-a', 'ggVG<CR>', options)
@@ -39,13 +39,14 @@ nnoremap('j', 'n')
 nnoremap('n', 'j')
 nnoremap('J', 'N')
 nnoremap('N', 'mzJ`z')
+map('n', [[<C-\>]], ':NvimTreeToggle<CR>', { noremap = true})
 -- nnoremap('g', 'gj')
 -- nnoremap('g', 'gn')
 -- nnoremap('k', 'e')
-nnoremap('k', 'nzzzv')
+-- nnoremap('k', 'nzzzv')
 nnoremap('e', 'k')
 -- nnoremap('K', 'E')
-nnoremap('K', 'Nzzzv')
+-- nnoremap('K', 'Nzzzv')
 nnoremap('E', '<nop>')
 -- nnoremap('gk', 'ge')
 -- nnoremap('ge', 'gk')
@@ -74,20 +75,41 @@ vim.g.coc_snippet_next = '<c-n>'
 vim.g.coc_snippet_prev = '<c-e>'
 
 -- telescope
-map('n', '<C-p>', ':lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<cr>', {})
+map('n', '<leader>p', ':lua require("telescope.builtin").find_files(require("telescope.themes").get_dropdown({}))<cr>', {})
 map('n', '<leader>gc', ':lua require("telescope.builtin").git_branches()<cr>', { noremap = true })
 
-vim.cmd([[
-nnoremap <silent>    <A-1> :BufferGoto 1<CR>
-nnoremap <silent>    <A-2> :BufferGoto 2<CR>
-nnoremap <silent>    <A-3> :BufferGoto 3<CR>
-nnoremap <silent>    <A-4> :BufferGoto 4<CR>
-nnoremap <silent>    <A-5> :BufferGoto 5<CR>
-nnoremap <silent>    <A-6> :BufferGoto 6<CR>
-nnoremap <silent>    <A-7> :BufferGoto 7<CR>
-nnoremap <silent>    <A-8> :BufferGoto 8<CR>
-nnoremap <silent>    <A-9> :BufferLast<CR>
-" Close buffer
-nnoremap <silent>    <leader>q :bd<CR>
-]])
+-- vim.cmd([[
+-- nnoremap <silent>    <A-1> :BufferGoto 1<CR>
+-- nnoremap <silent>    <A-2> :BufferGoto 2<CR>
+-- nnoremap <silent>    <A-3> :BufferGoto 3<CR>
+-- nnoremap <silent>    <A-4> :BufferGoto 4<CR>
+-- nnoremap <silent>    <A-5> :BufferGoto 5<CR>
+-- nnoremap <silent>    <A-6> :BufferGoto 6<CR>
+-- nnoremap <silent>    <A-7> :BufferGoto 7<CR>
+-- nnoremap <silent>    <A-8> :BufferGoto 8<CR>
+-- nnoremap <silent>    <A-9> :BufferLast<CR>
+-- " Close buffer
+-- ]])
 map("n", "<leader>gs", ":G<CR>", {})
+
+
+
+-- nnoremap("gd", "cmd lua vim.lsp.buf.definition()<CR>")
+-- nnoremap("gD", "cmd lua vim.lsp.buf.declaration()<CR>")
+-- nnoremap("gr", "cmd lua vim.lsp.buf.references()<CR>")
+-- nnoremap("K", "cmd lua vim.lsp.buf.hover()<CR>")
+-- nnoremap("<C-n>", "cmd lua vim.lsp.diagnostic.goto_next()<CR>")
+-- nnoremap("<C-n>", "cmd lua vim.lsp.diagnostic.goto_prev()<CR>")
+-- 
+-- vim.cmd([[
+-- autocmd BufWritePre *.js <cmd>EslintFixAll<CR>
+-- autocmd BufWritePre *.jsx <cmd>EslintFixAll<CR>
+-- autocmd BufWritePre *.ts <cmd>EslintFixAll<CR>
+-- autocmd BufWritePre *.tsx <cmd>EslintFixAll<CR>
+-- autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+-- ]])
+-- 
+-- vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
+-- vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
+-- vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
+-- vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})

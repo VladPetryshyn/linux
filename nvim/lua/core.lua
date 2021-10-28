@@ -63,7 +63,7 @@ o.hlsearch=true
 o.expandtab=true
 o.smartindent=true
 
-o.clipboard="unnamedplus"
+vim.cmd("set clipboard+=unnamedplus")
 
 vim.g.workman_normal_workman = 0
 vim.g.workman_insert_workman = 0
