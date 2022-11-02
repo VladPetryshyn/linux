@@ -11,3 +11,4 @@ function M.create_augroup(autocmds, name)
 end
 
 return M
+

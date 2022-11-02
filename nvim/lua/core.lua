@@ -70,3 +70,5 @@ vim.g.workman_insert_workman = 0
 
 vim.cmd('set wildmode=longest,list,full')
 vim.cmd('set wildmenu')
+vim.cmd('command Q :bdelete')
+

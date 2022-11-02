@@ -28,3 +28,4 @@ function! Term_toggle(height)
          endif
 endfunction
 ]], false)
+

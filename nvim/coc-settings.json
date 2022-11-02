@@ -5,7 +5,7 @@
     "typescript": ["typescript"],
     "typescriptreact": ["typescript", "typescriptreact"]
   },
-  "codeLens.enable": true,
+  "codeLens.enable": false,
   "codeLens.separator": "▸",
   "list.indicator": "❯",
   "coc.preferences.extensionUpdateCheck": "daily",
@@ -21,42 +21,11 @@
     "scss",
     "sass"
   ],
-  "coc.source.around.firstMatch": false,
   "coc.source.file.ignoreHidden": false,
   "eslint.format.enable": true,
   "eslint.packageManager": "yarn",
-  "explorer.file.showHiddenFiles": true,
-  "explorer.icon.enabledNerdfont": true,
-  "explorer.keyMappingMode": "none",
-  "explorer.icon.source": "vim-devicons",
-  "explorer.git.icon.rootStatus.stashed": " ",
-  "explorer.git.icon.rootStatus.ahead": "⇡ ",
-  "explorer.git.icon.rootStatus.behind": "⇣ ",
-  "explorer.git.icon.rootStatus.conflicted": " ",
-  "explorer.git.icon.status.added": " ",
-  "explorer.git.icon.rootStatus.added": " ",
-  "explorer.git.icon.status.renamed": "➥ ",
-  "explorer.width": 30,
-  "explorer.icon.enableNerdfont": true,
   "typescript.autoClosingTags": true,
   "javascript.autoClosingTags": true,
-  "explorer.previewAction.onHover": false,
-  "explorer.keyMappings.global": {
-    "<cr>": ["expandable?", "expand", "open"],
-    "v": "open:vsplit",
-    "d": "delete",
-    "e": false,
-    "o": ["expandable?", "expand", "open"],
-    "u": ["collapse"],
-    "a": "addFile",
-    "f": "search",
-    "F": "searchRecursive",
-    "A": "addDirectory",
-    "r": "rename",
-    "E": "open:split",
-    "t": "open:tab"
-  },
-  "explorer.quitOnOpen": true,
   "javascript.format.enabled": true,
   "typescript.format.enabled": true,
   "list.insertMappings": {
@@ -72,5 +41,86 @@
   "diagnostic.warningSign": "",
   "diagnostic.infoSign": "",
   "prettier.trailingComma": "all",
-  "eslint.autoFixOnSave": true
+  "eslint.autoFixOnSave": true,
+  "explorer.keyMappings.global": {
+    "i": false, // cancel default mapkey
+    "<c-o>": "noop",
+
+    "*": "toggleSelection",
+    "<tab>": "actionMenu",
+
+    "gk": ["wait", "expandablePrev"],
+    "gj": ["wait", "expandableNext"],
+    "h": ["wait", "collapse"],
+    "l": ["wait", "expandable?", "expand", "open"],
+    "J": ["wait", "toggleSelection", "normal:j"],
+    "K": ["wait", "toggleSelection", "normal:k"],
+    "gl": ["wait", "expand:recursive"],
+    "gh": ["wait", "collapse:recursive"],
+    "<2-LeftMouse>": [
+      "expandable?",
+      ["expanded?", "collapse", "expand"],
+      "open"
+    ],
+    "o": ["wait", "expanded?", "collapse", "expand"],
+    "<cr>": ["wait", "expandable?", "cd", "open"],
+    "s": "open:split",
+    "v": "open:vsplit",
+    "e": false,
+    "t": "open:tab",
+    "<bs>": ["wait", "gotoParent"],
+    "gs": ["wait", "reveal:select"],
+    "il": "preview:labeling",
+    "ic": "preview:content",
+    "Il": "previewOnHover:toggle:labeling",
+    "Ic": "previewOnHover:toggle:content",
+    "II": "previewOnHover:disable",
+
+    "yp": "copyFilepath",
+    "yn": "copyFilename",
+    "yy": "copyFile",
+    "dd": "cutFile",
+    "p": "pasteFile",
+    "df": "delete",
+    "dF": "deleteForever",
+
+    "a": "addFile",
+    "A": "addDirectory",
+    "r": "rename",
+
+    "zh": "toggleHidden",
+    "g<dot>": "toggleHidden",
+    "R": "refresh",
+
+    "?": "help",
+    "q": "quit",
+    "<esc>": "esc",
+    "X": "systemExecute",
+    "gd": "listDrive",
+
+    "f": "search",
+    "F": "searchRecursive",
+
+    "gf": "gotoSource:file",
+    "gb": "gotoSource:buffer",
+
+    "[[": ["wait", "sourcePrev"],
+    "]]": ["wait", "sourceNext"],
+
+    "[i": ["wait", "indentPrev"],
+    "]i": ["wait", "indentNext"],
+
+    "[m": ["wait", "markPrev:modified"],
+    "]m": ["wait", "markNext:modified"],
+
+    "[d": ["wait", "markPrev:diagnosticError:diagnosticWarning"],
+    "]d": ["wait", "markNext:diagnosticError:diagnosticWarning"],
+    "[D": ["wait", "markPrev:diagnosticError"],
+    "]D": ["wait", "markNext:diagnosticError"],
+
+    "[c": ["wait", "markPrev:git"],
+    "]c": ["wait", "markNext:git"],
+    "<<": "gitStage",
+    ">>": "gitUnstage"
+  }
 }
