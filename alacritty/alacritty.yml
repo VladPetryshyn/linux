@@ -104,7 +104,8 @@
 # Font configuration
 font:
   # Normal (roman) font face
-  #normal:
+  normal:
+    family: Inconsolata
     # Font family
     #
     # Default:
@@ -150,7 +151,7 @@ font:
     #style: Bold Italic
 
   # Point size
-  size: 15.0
+  size: 13.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -178,57 +179,19 @@ font:
 # Colors (Tomorrow Night)
 colors:
   primary:
-    background: '0x282a36'
-    foreground: '0xf8f8f2'
+    background: '0x0f111a'
+    foreground: '0xD8DEE9'
   cursor:
-    text: CellBackground
-    cursor: CellForeground
-  vi_mode_cursor:
-    text: CellBackground
-    cursor: CellForeground
-  search:
-    matches:
-      foreground: '0x44475a'
-      background: '0x50fa7b'
-    focused_match:
-      foreground: '0x44475a'
-      background: '0xffb86c'
-    bar:
-      background: '0x282a36'
-      foreground: '0xf8f8f2'
-  line_indicator:
-    foreground: None
-    background: None
-  selection:
-    text: CellForeground
-    background: '0x44475a'
+    cursor: '0xff4151'
   normal:
-    black:   '0x000000'
-    red:     '0xff5555'
-    green:   '0x50fa7b'
-    yellow:  '0xf1fa8c'
-    blue:    '0xbd93f9'
-    magenta: '0xff79c6'
-    cyan:    '0x8be9fd'
-    white:   '0xbfbfbf'
-  bright:
-    black:   '0x4d4d4d'
-    red:     '0xff6e67'
-    green:   '0x5af78e'
-    yellow:  '0xf4f99d'
-    blue:    '0xcaa9fa'
-    magenta: '0xff92d0'
-    cyan:    '0x9aedfe'
-    white:   '0xe6e6e6'
-  dim:
-    black:   '0x14151b'
-    red:     '0xff2222'
-    green:   '0x1ef956'
-    yellow:  '0xebf85b'
-    blue:    '0x4d5b86'
-    magenta: '0xff46b0'
-    cyan:    '0x59dffc'
-    white:   '0xe6e6d1'
+    black:      '0x4C566A'
+    red:        '0xBF616A'
+    green:      '0xA3BE8C'
+    yellow:     '0xEBCB8B'
+    blue:       '0x81A1C1'
+    magenta:    '0xB48EAD'
+    cyan:       '0x88C0D0'
+    white:      '0xE5E9F0'
 
 # Bell
 #

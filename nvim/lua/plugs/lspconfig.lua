@@ -52,7 +52,7 @@ protocol.CompletionItemKind = {
 }
 
 -- Set up completion using nvim_cmp with LSP source
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
+local capabilities = require('cmp_nvim_lsp').default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
 )
 
@@ -61,7 +61,7 @@ nvim_lsp.tsserver.setup {
   cmd = { "typescript-language-server", "--stdio" },
   capabilities = capabilities,
   on_attach = function(client, buffnr)
-     client.resolved_capabilities.document_formatting = false
+     client.server_capabilities.document_formatting = false
      on_attach(client, buffnr)
    end,
 }

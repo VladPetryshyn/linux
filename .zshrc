@@ -6,7 +6,6 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="/home/vlad/.oh-my-zsh"
@@ -104,11 +103,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export ANDROID_HOME=$HOME/.config/Android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+export ANDROID_SDK_ROOT=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # alias tmuxcheatsheet="chromium https://tmuxcheatsheet.com/"
 alias mux='pgrep -vx tmux > /dev/null && \
@@ -138,10 +135,10 @@ alias clock-repeat='clockify-cli clone last'
 
 # Completion for kitty
 kitty + complete setup zsh | source /dev/stdin
-export GO111MODULE=on
 
-GO111MODULE="on"
-GOPATH="/usr/bin/go"
+export GO111MODULE=on
+export GOPATH="/home/vlad/Documents/projects/go"
+export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 # workman
 
@@ -175,14 +172,13 @@ fi
 
 typeset -g POWERLEVEL9K_INSTANT_PROMPT=quiet
 alias ls="lsd"
-alias neofetch="pfetch | lolcat"
-alias htop="htop | lolcat"
 alias upgrade="sudo pacman -Su --ignore=node"
 alias cleanclip="touch /tmp/blank; xclip -selection clipboard /tmp/blank; rm /tmp/blank"
 alias backsmali="java -jar ~/Downloads/Tools/baksmali.jar"
 alias sign="java -jar ~/Downloads/Tools/sign.jar"
 alias dx="/home/vlad/.config/Android/Sdk/build-tools/29.0.2/dx"
 alias javac="javac -classpath /home/vlad/.config/Android/Sdk/platforms/android-29/android.jar"
+alias post="sudo su - postgres"
 eval "$(zoxide init zsh)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -195,3 +191,6 @@ export PASSWORD_STORE_DIR=/home/vlad/.config/passwords
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export NODE_OPTIONS="--max-old-space-size=8192 --experimental-vm-modules"
+export DOCKER_CLIENT_TIMEOUT=120
+export COMPOSE_HTTP_TIMEOUT=120

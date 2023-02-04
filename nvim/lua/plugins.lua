@@ -1,6 +1,6 @@
 -- local writingft = { 'text', 'markdown', 'off', 'org' }
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
   use "rafamadriz/friendly-snippets"
 	use 'wbthomason/packer.nvim'

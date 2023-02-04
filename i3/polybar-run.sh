@@ -1,7 +1,7 @@
 if type "xrandr"; then
   for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    MONITOR=$m polybar --reload main -c "~/.config/polybar/grayblocks/config.ini" &
+    MONITOR=$m polybar --reload bar -c "~/.config/polybar/float/config" &
   done
 else
-  polybar --reload main -c "~/.config/polybar/grayblocks/config.ini" &
+  polybar --reload bar -c "~/.config/polybar/float/config" &
 fi

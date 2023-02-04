@@ -1,10 +1,11 @@
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-exec "xrandr --output HDMI1 --auto --right-of eDP1"
+exec xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1
+exec_always "xrandr --output HDMI-A-0 --auto --right-of eDP"
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-client.focused          #6272A4 #6272A4 #F8F8F2 #6272A4   #6272A4
+client.focused          #FF5555 #FF5555 #F8F8F2 #FF5555   #FF5555
 client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
 client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
 client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
@@ -17,8 +18,7 @@ client.background       #F8F8F2
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
 default_border pixel 0
 default_floating_border pixel 0
-
-for_window [class="^.*"] border pixel 0
+# for_window [class="^.*"] border pixel 0
 
 # Hide borders
 hide_edge_borders none
@@ -36,13 +36,13 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec st
+bindsym $mod+Return exec kitty
 
 # kill focused window
 bindsym $mod+x kill
 
 # start program launcher
-bindsym $mod+l exec --no-startup-id  rofi -no-config -no-lazy-grab -show drun -modi drun -theme ~/.config/polybar/docky/scripts/rofi/launcher.rasi
+bindsym $mod+l exec "/home/vlad/.config/rofi/launch.sh"
 
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -60,8 +60,8 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 ################################################################################################
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec brightnessctl set 50+ # increase screen brightness
+bindsym XF86MonBrightnessDown exec brightnessctl set 50-# decrease screen brightness
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
@@ -88,11 +88,6 @@ bindsym $mod+e focus up
 bindsym $mod+o focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
-
 # move focused window
 bindsym $mod+Shift+y move left
 bindsym $mod+Shift+n move down
@@ -197,6 +192,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="Alacritty"] floating enable
 for_window [class="calamares"] floating enable border normal
 for_window [class="Clipgrab"] floating enable
 for_window [title="File Transfer*"] floating enable
@@ -286,7 +282,6 @@ exec --no-startup-id nm-applet
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id pamac-tray
 exec --no-startup-id clipit
-exec --no-startup-id aw-qt
 # exec --no-startup-id blueman-applet
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
@@ -326,8 +321,7 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
-exec_always --no-startup-id ~/.config/i3/polybar-run.sh
-
+exec_always --no-startup-id sh /home/vlad/.config/i3/polybar-run.sh
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 # bar {
 # 	status_command i3status 
@@ -418,11 +412,11 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always --no-startup-id picom --blur-background --opacity-rule 55:'class_g="st"' --backend glx
+exec_always --no-startup-id picom --blur-background --opacity-rule 55:'class_g="alacritty"' --backend glx
 exec_always xset b off
 
-bindsym XF86AudioRaiseVolume exec amixer -q set Master 2dB+ unmute
-bindsym XF86AudioLowerVolume exec amixer -q set Master 2dB- unmute
+bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
+bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
 exec "syncthing -no-browser"
 exec "modprobe soundcore"
 
@@ -436,17 +430,27 @@ default_floating_border pixel 1
 # exec_always "redshift -t 6500:3000 -b 1.0:0.8"
 
 exec xinput set-prop 10 311 1
-exec "setxkbmap -layout us,ru -variant workman,os_winkeys -option grp:alt_shift_toggle"
+exec "setxkbmap -layout us,ua -variant workman,os_winkeys -option grp:alt_shift_toggle"
 exec "xmodmap -e 'clear Lock'"
-exec "aw-server"
+exec_always "aw-server --port 1234"
 
-exec --no-startup-id nitrogen --restore; sleep 1; 
-exec redshift -l 50.43650097867089:30.555975172120355 -t 6500:5000 -b 1.0:0.8
+# exec --no-startup-id xwinwrap -nf -ov -fs -- mpv -wid WID -quiet -loop 0 --script-opts=osc-visibility=never /home/vlad/Downloads/berserk-desktop-wallpaperwaifu.com.mp4 &
 exec "kdeconnect-indicator"
+exec --no-startup-id nitrogen --restore
 
 
-bindsym $mod+p exec "export PASSWORD_STORE_DIR=/home/vlad/.config/passwords; passmenu"
+bindsym $mod+p exec "export PASSWORD_STORE_DIR=/home/vlad/.syncing/Passwords; passmenu"
+bindsym $mod+k exec "alacritty -e nvim /home/vlad/.syncing/Tasks/inbox.org"
+bindsym $mod+Shift+k exec "alacritty -e nvim /home/vlad/.syncing/Tasks/home.org"
 bindsym $mod+Shift+d exec "~/.config/i3/day.sh"
 bindsym $mod+Shift+m exec "~/.config/i3/night.sh"
-bindsym $mod+g exec ~/.vim-anywhere/bin/run
+bindsym $mod+Shift+f exec "alacritty -e newsboat"
+bindsym $mod+Shift+t exec "alacritty -e telegram-cli -N"
 bindsym $mod+m exec networkmanager_dmenu
+
+# touchpad
+
+bindsym $mod+t+d exec "xinput set-prop 10 \"Device Enabled\" 0"
+bindsym $mod+t+e exec "xinput set-prop 10 \"Device Enabled\" 0"
+bindsym $mod+Down exec "xdotool click 5"
+bindsym $mod+Up exec "xdotool click 4"

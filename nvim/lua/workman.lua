@@ -45,6 +45,5 @@ inoremap <c-j> <c-n>
 cnoremap <c-j> <c-n>
 
 nnoremap jj yy
-nunmap yy
 ]], false)
 
