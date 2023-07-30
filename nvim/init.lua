@@ -1,6 +1,5 @@
 require("core")
 require("mappings")
 require("plugins")
-require("workman")
 require("terminal")
 require("styling")

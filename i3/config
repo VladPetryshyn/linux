@@ -42,7 +42,7 @@ bindsym $mod+Return exec kitty
 bindsym $mod+x kill
 
 # start program launcher
-bindsym $mod+l exec "/home/vlad/.config/rofi/launch.sh"
+bindsym $mod+n exec rofi -show drun -theme /home/vlad/.config/rofi/rofi-themes-collection/spotlight.rasi -show-icons
 
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -76,23 +76,23 @@ bindsym $mod+Ctrl+t exec --no-startup-id picom -b
 bindsym Print exec --no-startup-id flameshot gui
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
+#bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+y focus left
-bindsym $mod+n focus down
-bindsym $mod+e focus up
-bindsym $mod+o focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 # move focused window
-bindsym $mod+Shift+y move left
-bindsym $mod+Shift+n move down
-bindsym $mod+Shift+e move up
-bindsym $mod+Shift+o move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -106,8 +106,8 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
-bindsym $mod+v split v;exec notify-send 'tile vertically'
+#bindsym $mod+h split h;exec notify-send 'tile horizontally'
+#bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
 # toggle fullscreen mode for the focused container
@@ -230,7 +230,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # exit i3 (logs you out of your X sessionq
-bindsym $mod+Shift+q exec "sh ~/.dotfiles/rofi/powermenu/powermenu.sh"
+bindsym $mod+Shift+q exec "sh ~/.config/rofi/powermenu/powermenu.sh"
 
 # Set shut down, restart and locking features
 # bindsym $mod+0 mode "$mode_system"
@@ -412,7 +412,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-exec_always --no-startup-id picom --blur-background --opacity-rule 55:'class_g="alacritty"' --backend glx
+exec_always --no-startup-id picom -b
 exec_always xset b off
 
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
@@ -430,18 +430,19 @@ default_floating_border pixel 1
 # exec_always "redshift -t 6500:3000 -b 1.0:0.8"
 
 exec xinput set-prop 10 311 1
-exec "setxkbmap -layout us,ua -variant workman,os_winkeys -option grp:alt_shift_toggle"
+exec "setxkbmap -layout us,ua -variant workman, -option grp:alt_shift_toggle"
 exec "xmodmap -e 'clear Lock'"
-exec_always "aw-server --port 1234"
+exec_always "aw-qt --port 1234"
 
 # exec --no-startup-id xwinwrap -nf -ov -fs -- mpv -wid WID -quiet -loop 0 --script-opts=osc-visibility=never /home/vlad/Downloads/berserk-desktop-wallpaperwaifu.com.mp4 &
 exec "kdeconnect-indicator"
-exec --no-startup-id nitrogen --restore
+# exec --no-startup-id nitrogen --restore
+exec --no-startup-id wallset --set-video 3
 
 
-bindsym $mod+p exec "export PASSWORD_STORE_DIR=/home/vlad/.syncing/Passwords; passmenu"
-bindsym $mod+k exec "alacritty -e nvim /home/vlad/.syncing/Tasks/inbox.org"
-bindsym $mod+Shift+k exec "alacritty -e nvim /home/vlad/.syncing/Tasks/home.org"
+bindsym $mod+p exec "export LC_CTYPE=en_GB.utf8;export PASSWORD_STORE_DIR=/home/vlad/.syncing/Pass; passmenu"
+bindsym $mod+i exec "alacritty -e nvim /home/vlad/.syncing/Tasks/inbox.org"
+bindsym $mod+Shift+i exec "alacritty -e nvim /home/vlad/.syncing/Tasks/home.org"
 bindsym $mod+Shift+d exec "~/.config/i3/day.sh"
 bindsym $mod+Shift+m exec "~/.config/i3/night.sh"
 bindsym $mod+Shift+f exec "alacritty -e newsboat"
@@ -454,3 +455,4 @@ bindsym $mod+t+d exec "xinput set-prop 10 \"Device Enabled\" 0"
 bindsym $mod+t+e exec "xinput set-prop 10 \"Device Enabled\" 0"
 bindsym $mod+Down exec "xdotool click 5"
 bindsym $mod+Up exec "xdotool click 4"
+bindsym $mod+d exec "alacritty -e nvim /home/vlad/.syncing/Tasks"

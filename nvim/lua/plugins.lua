@@ -25,25 +25,14 @@ return require('packer').startup(function(use)
     		'fatih/vim-go',
 		ft={"go"}
   	}
+  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'windwp/nvim-ts-autotag'
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
       'kyazdani42/nvim-web-devicons', -- optional, for file icons
     },
-    config = function ()
-      require("nvim-tree").setup{
-        view = {
-          mappings = {
-            list = {
-            {key = "v", action = "vsplit"},
-            {key = "s", action = "split"},
-            {key = "t", action = "tabnew"}
-            }
-          }
-        }
-      }
-    end
+    config = function () require'plugs/tree'end
   }
   use { 'jose-elias-alvarez/null-ls.nvim', config = function ()
     require("plugs/null")
@@ -94,9 +83,7 @@ return require('packer').startup(function(use)
   -- org
   use { 'gagbo/tree-sitter-org' }
   use { "akinsho/org-bullets.nvim", config = function()
-    require("org-bullets").setup {
-      symbols = { "◉", "○", "✸", "✿" }
-    }
+    require("org-bullets").setup {}
   end}
   use { 
     'nvim-orgmode/orgmode',

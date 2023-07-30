@@ -1,7 +1,7 @@
 [colors]
 
-background = ${xrdb:background:#000000}
-foreground = ${xrdb:color7:#ff5555}
+background = ${xrdb:background:#00f6798e}
+foreground = ${xrdb:color7:#000}
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 
@@ -42,7 +42,7 @@ modules-left = launcher i3
 ;modules-center = previous playpause next spotify
 ; Mpd
 modules-center = time
-modules-right = battery wlan pulseaudio power
+modules-right =  wlan battery pulseaudio power
 
 scroll-up = bspwn-wsnext
 scroll-down = bspwn-wsprev
@@ -171,17 +171,20 @@ label = %percentage_used%%
 
 [module/wlan]
 type = internal/network
-interface = wlo1
+interface = wlan0
 interval = 3.0
 
-format-connected =  <label-connected>
+format-connected =  
+#format-connected =  <label-connected>
 label-connected = %essid%
 label-connected-color1 = ${colors.foreground}
+format-connected-padding = 4
 
 ;format-disconnected =
 format-disconnected = <label-disconnected>
 label-disconnected = %ifname% disconnected
 label-disconnected-color1 = ${colors.foreground}
+format-disconnected-padding = 4
 
 ramp-signal-0 = 
 ramp-signal-1 = 

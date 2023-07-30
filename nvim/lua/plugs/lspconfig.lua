@@ -72,7 +72,7 @@ nvim_lsp.cssls.setup {}
 nvim_lsp.html.setup {}
 nvim_lsp.kotlin_language_server.setup {}
 
-nvim_lsp.sumneko_lua.setup {
+nvim_lsp.lua_ls.setup {
   on_attach = on_attach,
   settings = {
     Lua = {
