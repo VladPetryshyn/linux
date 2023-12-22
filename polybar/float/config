@@ -1,7 +1,7 @@
 [colors]
 
-background = ${xrdb:background:#00f6798e}
-foreground = ${xrdb:color7:#000}
+background = ${xrdb:background:#000}
+foreground = ${xrdb:color7:#9C142A}
 
 ;  _                    
 ; | |__   __ _ _ __ ___ 

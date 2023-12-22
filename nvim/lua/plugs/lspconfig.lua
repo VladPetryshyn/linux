@@ -70,6 +70,8 @@ nvim_lsp.emmet_ls.setup {}
 nvim_lsp.gopls.setup {}
 nvim_lsp.cssls.setup {}
 nvim_lsp.html.setup {}
+nvim_lsp.clangd.setup {}
+nvim_lsp.pyright.setup {}
 nvim_lsp.kotlin_language_server.setup {}
 
 nvim_lsp.lua_ls.setup {

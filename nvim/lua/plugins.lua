@@ -1,7 +1,13 @@
 -- local writingft = { 'text', 'markdown', 'off', 'org' }
 
 return require('packer').startup(function(use)
-  use 'L3MON4D3/LuaSnip'
+  use {'L3MON4D3/LuaSnip', config = function()
+      local ls = require("luasnip")
+      ls.setup{}
+      require('luasnip.loaders.from_vscode').lazy_load({include = {"go"}})
+      require('luasnip.loaders.from_snipmate').lazy_load({paths="~/Downloads/dotfiles/nvim/snippets"})
+    end
+  }
   use "rafamadriz/friendly-snippets"
 	use 'wbthomason/packer.nvim'
   use {
@@ -27,6 +33,7 @@ return require('packer').startup(function(use)
   	}
   use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install", setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
   use 'windwp/nvim-ts-autotag'
+  use { 'uZer/pywal16.nvim', as = 'pywal16' }
   use {
     'kyazdani42/nvim-tree.lua',
     requires = {
@@ -102,4 +109,5 @@ return require('packer').startup(function(use)
         require('nvim_comment').setup()
       end
   }
+  use { 'saadparwaiz1/cmp_luasnip' }
 end)

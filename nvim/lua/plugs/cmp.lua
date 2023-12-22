@@ -1,9 +1,5 @@
 local cmp = require'cmp'
 local lspkind = require('lspkind')
-local ls = require("luasnip")
-ls.setup{}
-require('luasnip.loaders.from_vscode').lazy_load({include = {"go"}})
-
   cmp.setup({
     snippet = {
       -- REQUIRED - you must specify a snippet engine
@@ -56,11 +52,11 @@ require('luasnip.loaders.from_vscode').lazy_load({include = {"go"}})
       end, {'i', 's'}),
     }),
     sources = cmp.config.sources({
+      { name = 'luasnip' }, -- For luasnip users.
       { name = 'nvim_lsp' },
       {name = "path"},
       {name="orgmode"},
       -- { name = 'vsnip' }, -- For vsnip users.
-      { name = 'luasnip' }, -- For luasnip users.
       -- { name = 'ultisnips' }, -- For ultisnips users.
       -- { name = 'snippy' }, -- For snippy users.
     }, {

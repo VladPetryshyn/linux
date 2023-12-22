@@ -196,6 +196,15 @@ export DOCKER_CLIENT_TIMEOUT=120
 export COMPOSE_HTTP_TIMEOUT=120
 export PASSWORD_STORE_DIR=/home/vlad/.syncing/Pass
 alias c="__zoxide_z"
+alias wpm="python -m wpm"
 
 # golang
 export PATH=$PATH:/usr/local/go/bin
+
+# kotlin
+export PATH=$PATH:/home/vlad/Downloads/kotlin-native-linux-x86_64-1.9.0/bin
+export PATH=$PATH:/home/vlad/Downloads/idea/bin
+
+runcpp() {
+  g++ "$1" && ./a.out
+}

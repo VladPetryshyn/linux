@@ -1,3 +1,4 @@
+exec wal -R
 # i3 config file (v4)
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 exec xinput set-prop "ELAN071A:00 04F3:30FD Touchpad" "libinput Tapping Enabled" 1
@@ -5,12 +6,20 @@ exec_always "xrandr --output HDMI-A-0 --auto --right-of eDP"
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
-client.focused          #FF5555 #FF5555 #F8F8F2 #FF5555   #FF5555
-client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
-client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
-client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
-client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
-client.background       #F8F8F2
+# client.focused          #FF5555 #FF5555 #F8F8F2 #FF5555   #FF5555
+# client.focused_inactive #44475A #44475A #F8F8F2 #44475A   #44475A
+# client.unfocused        #282A36 #282A36 #BFBFBF #282A36   #282A36
+# client.urgent           #44475A #FF5555 #F8F8F2 #FF5555   #FF5555
+# client.placeholder      #282A36 #282A36 #F8F8F2 #282A36   #282A36
+# client.background       #F8F8F2
+
+client.focused          $bg     $bg     $fg  $bg       $bg
+client.focused_inactive $bg     $bg     $fg  $bg       $bg
+client.unfocused        $bg     $bg     $fg  $bg       $bg
+client.urgent           $bg     $bg     $fg  $bg       $bg
+client.placeholder      $bg     $bg     $fg  $bg       $bg
+
+client.background       $bg
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
@@ -430,14 +439,14 @@ default_floating_border pixel 1
 # exec_always "redshift -t 6500:3000 -b 1.0:0.8"
 
 exec xinput set-prop 10 311 1
-exec "setxkbmap -layout us,ua -variant workman, -option grp:alt_shift_toggle"
+exec "setxkbmap -layout us,ua -option grp:alt_shift_toggle"
 exec "xmodmap -e 'clear Lock'"
 exec_always "aw-qt --port 1234"
 
 # exec --no-startup-id xwinwrap -nf -ov -fs -- mpv -wid WID -quiet -loop 0 --script-opts=osc-visibility=never /home/vlad/Downloads/berserk-desktop-wallpaperwaifu.com.mp4 &
 exec "kdeconnect-indicator"
-# exec --no-startup-id nitrogen --restore
-exec --no-startup-id wallset --set-video 3
+exec --no-startup-id nitrogen --restore
+# exec --no-startup-id wallset --set-video 3
 
 
 bindsym $mod+p exec "export LC_CTYPE=en_GB.utf8;export PASSWORD_STORE_DIR=/home/vlad/.syncing/Pass; passmenu"
@@ -456,3 +465,4 @@ bindsym $mod+t+e exec "xinput set-prop 10 \"Device Enabled\" 0"
 bindsym $mod+Down exec "xdotool click 5"
 bindsym $mod+Up exec "xdotool click 4"
 bindsym $mod+d exec "alacritty -e nvim /home/vlad/.syncing/Tasks"
+
