@@ -45,13 +45,13 @@ font xft:URWGothic-Book 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec kitty
+bindsym $mod+Return exec st
 
 # kill focused window
 bindsym $mod+x kill
 
 # start program launcher
-bindsym $mod+n exec rofi -show drun -theme /home/vlad/.config/rofi/rofi-themes-collection/spotlight.rasi -show-icons
+bindsym $mod+n exec rofi -show drun -theme /home/vlad/.config/rofi/theme.rasi
 
 bindsym $mod+z exec --no-startup-id morc_menu
 
@@ -330,7 +330,6 @@ set_from_resource $term_color13    color13
 set_from_resource $term_color14    color14
 set_from_resource $term_color15    color15
 
-exec_always --no-startup-id sh /home/vlad/.config/i3/polybar-run.sh
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 # bar {
 # 	status_command i3status 
@@ -369,7 +368,6 @@ exec_always --no-startup-id sh /home/vlad/.config/i3/polybar-run.sh
 # Set inner/outer gaps
 gaps inner 14
 gaps outer -2
-gaps top 40
 
 # Additionally, you can issue commands with the following syntax. This is useful to bind keys to changing the gap size.
 # gaps inner|outer current|all set|plus|minus <px>
@@ -426,7 +424,6 @@ exec_always xset b off
 
 bindsym XF86AudioRaiseVolume exec amixer set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer set Master 5%- unmute
-exec "syncthing -no-browser"
 exec "modprobe soundcore"
 
 for_window [class=alacritty instance="__text_scratchpad"] floating enable
@@ -449,7 +446,7 @@ exec --no-startup-id nitrogen --restore
 # exec --no-startup-id wallset --set-video 3
 
 
-bindsym $mod+p exec "export LC_CTYPE=en_GB.utf8;export PASSWORD_STORE_DIR=/home/vlad/.syncing/Pass; passmenu"
+bindsym $mod+p exec "export LC_CTYPE=en_US.utf8;export PASSWORD_STORE_DIR=/home/vlad/.syncing/Pass; rofi-pass"
 bindsym $mod+i exec "alacritty -e nvim /home/vlad/.syncing/Tasks/inbox.org"
 bindsym $mod+Shift+i exec "alacritty -e nvim /home/vlad/.syncing/Tasks/home.org"
 bindsym $mod+Shift+d exec "~/.config/i3/day.sh"
@@ -465,4 +462,6 @@ bindsym $mod+t+e exec "xinput set-prop 10 \"Device Enabled\" 0"
 bindsym $mod+Down exec "xdotool click 5"
 bindsym $mod+Up exec "xdotool click 4"
 bindsym $mod+d exec "alacritty -e nvim /home/vlad/.syncing/Tasks"
-
+# exec_always --no-startup-id sh /home/vlad/.config/i3/polybar-run.sh
+# exec feh --bg-scale /home/vlad/Downloads/bg.jpg
+# exec "sh /home/vlad/Downloads/toggle-monitor-grayscale.sh"

@@ -14,7 +14,7 @@ export ZSH="/home/vlad/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="minimal"
+ZSH_THEME="amuse"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -208,3 +208,6 @@ export PATH=$PATH:/home/vlad/Downloads/idea/bin
 runcpp() {
   g++ "$1" && ./a.out
 }
+
+# Created by `pipx` on 2024-01-18 11:55:59
+export PATH="$PATH:/home/vlad/.local/bin"

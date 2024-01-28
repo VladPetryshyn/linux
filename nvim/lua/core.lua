@@ -65,9 +65,6 @@ o.smartindent=true
 
 vim.cmd("set clipboard+=unnamedplus")
 
-vim.g.workman_normal_workman = 0
-vim.g.workman_insert_workman = 0
-
 vim.cmd('set wildmode=longest,list,full')
 vim.cmd('set wildmenu')
 vim.cmd('command Q :bdelete')

@@ -28,10 +28,10 @@ foreground = ${colors.foreground}
 line-size = 2
 
 padding=2
-font-0=sf-ui-display-medium:size=16;3
-font-1=Font Awesome 5 Free Solid:size=10;2
-font-2=Font Awesome 5 Free Solid:size=10;2
-font-3=Font Awesome 5 Brands:size=8;2
+font-0=SFUIText-Regular:size=13;3
+font-1=fasolid:size=10;2
+font-2=fasolid:size=10;2
+font-3=BlexMonoNerdFont-Text:size=8;2
 font-4=font\-logos:size=10;2
 font-5=IPAGothic:size=11;2
 font-6 = "Terminus:size=10;3"
