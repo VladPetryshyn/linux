@@ -1,7 +1,0 @@
-require("core")
-require("variables")
-require("plugins")
-require("terminal")
-require("mappings")
-require("workman")
-require("styling")

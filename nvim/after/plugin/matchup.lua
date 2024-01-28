@@ -1,0 +1,2 @@
+-- lvim.builtin.treesitter.matchup.enable = true
+-- vim.g.matchup_matchparen_offscreen = { method = "popup" }

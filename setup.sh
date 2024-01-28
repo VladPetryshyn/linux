@@ -1,24 +1,29 @@
-#! /bin/bash
+! /bin/bash
+echo "Installing dependencies with pacman"
+sudo pacman -S neovim tmux dunst firefox thunar mpv feh base-devel picom
 
-folder=$PWD
-
-sudo pacman -S polybar neovim tmux rofi dunst kitty firefox brave thunar alacritty libreoffice mpv nitrogen base-devel
-
+echo "Installing yay"
 git clone https://aur.archlinux.org/yay.git /tmp/aurYay
 cd /tmp/aurYay
 makepkg -si 
-yay -S syncthing compton-tryone-git zoxide bat lsd obsidian-appimage librewolf-bin anki-bin megasync-bin
 
-ln -s $currentPath/alacritty /home/vlad/.config/alacritty
-ln -s $currrentPath/zathura /home/vlad/.config/zathura
-ln -s $currrentPath/ranger /home/vlad/.config/ranger
-ln -s $currrentPath/rofi /home/vlad/.config/rofi
-ln -s $currrentPath/i3 /home/vlad/.config/i3
-ln -s $currrentPath/kitty /home/vlad/.config/kitty
-ln -s $currrentPath/rofi /home/vlad/.config/rofi
-ln -s $currrentPath/polybar /home/vlad/.config/polybar
-ln -s $currrentPath/nvim /home/vlad/.config/nvim
-ln -s $currrentPath/dunst /home/vlad/.config/dunst
-ln -s $currrentPath/.tmux /home/vlad/.tmux
-ln -s $currrentPath/.tmux.conf /home/vlad/.tmux.conf
-ln -s $currentPath/.zshrc /home/vlad/.zshrc
+echo "Installing dependencies with yay"
+yay -S syncthing zoxide bat lsd obsidian-appimage librewolf-bin anki-bin
+
+echo "Installing suckless software"
+echo "Installing dwm"
+cd $PWD/dwm; sudo make clean install
+
+echo "Installing dmenu"
+cd $PWD/dmenu; sudo make clean install
+
+echo "Installing slstatus"
+cd $PWD/slstatus; sudo make clean install
+
+echo "creating symlinks"
+ln -s $PWD/tmux /home/$USER/.config/tmux
+ln -s $PWD/zathura /home/$USER/.config/zathura
+ln -s $PWD/nvim /home/$USER/.config/nvim
+ln -s $PWD/.zshrc /home/$USER/
+
+echo "All done!"
