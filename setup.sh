@@ -8,7 +8,7 @@ cd /tmp/aurYay
 makepkg -si 
 
 echo "Installing dependencies with yay"
-yay -S syncthing zoxide bat lsd obsidian-appimage librewolf-bin anki-bin
+yay -S syncthing zoxide bat lsd obsidian-appimage librewolf-bin anki-bin warpd
 
 echo "Installing suckless software"
 echo "Installing dwm"

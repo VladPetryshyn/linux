@@ -41,9 +41,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "T",      tile },    /* first entry is default */
+	{ "F",      NULL },    /* no layout function means floating behavior */
+	{ "M",      monocle },
 };
 
 /* key definitions */
@@ -81,19 +81,21 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
 	// { MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
+	{ MODKEY,             XK_s,  togglesticky, {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-    { MODKEY,			XK_minus,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-") },
-    { MODKEY|ShiftMask,		XK_minus,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-") },
-    { MODKEY,			XK_equal,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+") },
-    { MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+") },
-    { MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+") },
+    { MODKEY,			XK_minus,	spawn,		SHCMD("amixer set Master 5%- unmute") },
+    { MODKEY|ShiftMask,		XK_minus,	spawn,		SHCMD("amixer set Master 15%- unmute") },
+    { MODKEY,			XK_equal,	spawn,		SHCMD("amixer set Master 5%+ unmute") },
+    { MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("amixer set Master 15%+ unmute") },
     { MODKEY,		XK_p,	spawn,		SHCMD("export LC_CTYPE=en_GB.utf8;export PASSWORD_STORE_DIR=/home/vlad/.syncing/Pass; passmenu") },
     { MODKEY|ShiftMask,		XK_p,	spawn,		SHCMD("flameshot gui") },
+    { MODKEY|ShiftMask,		XK_n,	spawn,		SHCMD("warpd --normal") },
+    { MODKEY|ShiftMask,		XK_h,	spawn,		SHCMD("warpd --hint") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

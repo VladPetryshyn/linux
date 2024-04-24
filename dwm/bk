@@ -41,9 +41,9 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "[]=",      tile },    /* first entry is default */
-	{ "><>",      NULL },    /* no layout function means floating behavior */
-	{ "[M]",      monocle },
+	{ "T",      tile },    /* first entry is default */
+	{ "F",      NULL },    /* no layout function means floating behavior */
+	{ "M",      monocle },
 };
 
 /* key definitions */
@@ -94,6 +94,8 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,		XK_equal,	spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+") },
     { MODKEY,		XK_p,	spawn,		SHCMD("export LC_CTYPE=en_GB.utf8;export PASSWORD_STORE_DIR=/home/vlad/.syncing/Pass; passmenu") },
     { MODKEY|ShiftMask,		XK_p,	spawn,		SHCMD("flameshot gui") },
+    { MODKEY|ShiftMask,		XK_n,	spawn,		SHCMD("warpd --normal") },
+    { MODKEY|ShiftMask,		XK_h,	spawn,		SHCMD("warpd --hint") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
