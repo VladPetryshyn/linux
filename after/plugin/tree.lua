@@ -32,4 +32,3 @@ require("nvim-tree").setup {
 }
 
 vim.keymap.set('n', '<leader><space>', ':NvimTreeFindFileToggle<cr>', { noremap = true })
-

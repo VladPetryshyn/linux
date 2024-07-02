@@ -22,9 +22,9 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# export ANDROID_SDK_ROOT=$HOME/Android/Sdk
-# export PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-# export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+# export ANDROID_HOME=$HOME/Android/Sdk
+# export PATH=$PATH:$ANDROID_HOME/emulator
+# export PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # alias tmuxcheatsheet="chromium https://tmuxcheatsheet.com/"
 alias mux='pgrep -vx tmux > /dev/null && \
@@ -85,3 +85,7 @@ export PATH=$PATH:/home/vlad/Downloads/kotlin-native-linux-x86_64-1.9.0/bin
 export PATH=$PATH:/home/vlad/Downloads/idea/bin
 # Created by `pipx` on 2024-01-18 11:55:59
 export PATH="$PATH:/home/vlad/.local/bin"
+export ANDROID_HOME=$HOME/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+export TESSDATA_PREFIX=/home/vlad/.cache/tessdata

@@ -8,14 +8,12 @@ vim.keymap.set('n', '<leader>ps', function()
 	builtin.grep_string({ search = vim.fn.input("Grep >")});
 end) ]]
 
+
 map('n', '<leader>p', builtin.find_files, {})
 map('n', '<leader>f', builtin.live_grep, { noremap = true })
 map('n', '<leader>gc', ':lua require("telescope.builtin").git_branches()<cr>', { noremap = true })
 map("n", "<leader>gs", ":G<CR>", {})
-map("n", "<leader>er", ':lua require("telescope.builtin").diagnostics(require("telescope.themes").get_ivy({}))<cr>', {remap = true})
-map("n", "<leader>gd", builtin.lsp_definitions, {remap = true})
 
--- funciton() builtin.diagnostics() end
 require("telescope").setup{
     -- see :help telescope.setup()
     defaults = {
@@ -29,4 +27,3 @@ require("telescope").setup{
         prompt_prefix = "🔍 ",
     }
 }
-

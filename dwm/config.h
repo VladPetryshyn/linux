@@ -30,6 +30,7 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
+	{ "zenity",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
 
@@ -75,7 +76,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_space, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-    { MODKEY,             XK_x,      killclient,     {0} },
+    { MODKEY,                       XK_x,      killclient,     {0} },
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -96,6 +97,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,		XK_p,	spawn,		SHCMD("flameshot gui") },
     { MODKEY|ShiftMask,		XK_n,	spawn,		SHCMD("warpd --normal") },
     { MODKEY|ShiftMask,		XK_h,	spawn,		SHCMD("warpd --hint") },
+    { MODKEY|ShiftMask,		XK_b,	spawn,		SHCMD("/home/vlad/Downloads/Anti-Porn-HOSTS-File/script.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

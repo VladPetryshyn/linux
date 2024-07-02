@@ -1,3 +1,4 @@
+redshift -l 52.50442:13.39097 &
 wal -R &
 picom &
 flameshot &
