@@ -9,6 +9,7 @@ conform.setup({
     typescript = { { "prettierd" } },
     typescriptreact = { { "prettierd" } },
     javascriptreact = { { "prettierd" } },
+    lua = { { "stylua" } },
   },
 	-- format_on_save = {
 	-- 	lsp_fallback = true,

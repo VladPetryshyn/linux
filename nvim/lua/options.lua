@@ -9,10 +9,10 @@ vim.opt.scrolloff = 7
 vim.cmd.set("matchpairs", "+=<:>")
 
 vim.opt.modelines = 0
-vim.opt.backspace = {'indent', 'eol', 'start'}
+vim.opt.backspace = { "indent", "eol", "start" }
 
 -- no automatic filetype detection
-vim.o.filetype = 'off'
+vim.o.filetype = "off"
 
 -- no sound effects
 vim.opt.visualbell = false
@@ -27,11 +27,11 @@ vim.cmd.set("cursorcolumn")
 vim.cmd.set("hlsearch")
 
 -- I don't know what this does, but probably something with identing
-vim.cmd([[
- 	filetype plugin indent on
- 	set noshiftround
- 	set nolist
-]])
+-- vim.cmd([[
+--  	filetype plugin indent on
+--  	set noshiftround
+--  	set nolist
+-- ]])
 
 -- don't create swap files
 vim.opt.backup = false
@@ -45,8 +45,10 @@ vim.opt.wrap = true
 vim.opt.linebreak = true
 
 -- map ukrainian keys
-vim.opt.langmap = {'ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ','фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz'}
-
+vim.opt.langmap = {
+	"ФИСВУАПРШОЛДЬТЩЗЙКІЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+	"фисвуапршолдьтщзйкіегмцчня;abcdefghijklmnopqrstuvwxyz",
+}
 
 -- something
 vim.cmd([[
@@ -65,28 +67,29 @@ vim.cmd([[
  	set splitright
 ]])
 --  enable mouse for normal and visual modes
-vim.opt.mouse = {n = true, v = true}
+vim.opt.mouse = { n = true, v = true }
 
 -- encoding
-vim.opt.encoding='utf-8'
+vim.opt.encoding = "utf-8"
 
 -- set command history to 100 entries
-vim.opt.history=100
+vim.opt.history = 100
 
 -- tab indent
-vim.opt.tabstop=2
-vim.opt.softtabstop=2
-vim.opt.shiftwidth=2
-vim.opt.smarttab = true
-vim.opt.smartindent = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
+-- vim.opt.smarttab = true
+-- vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 -- shows search matches so far
 vim.opt.incsearch = true
 
 -- cmd completion
-vim.opt.wildignore = {'*.swp','*.bak','*.pyc','*.class'}
-vim.opt.wildmode = {'longest', 'list', 'full'}
-vim.cmd.set('wildcharm=<C-Z>')
+vim.opt.wildignore = { "*.swp", "*.bak", "*.pyc", "*.class" }
+vim.opt.wildmode = { "longest", "list", "full" }
+vim.cmd.set("wildcharm=<C-Z>")
 
 -- just cmd height
 vim.o.cmdheight = 0
