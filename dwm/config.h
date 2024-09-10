@@ -98,6 +98,7 @@ static const Key keys[] = {
     { MODKEY|ShiftMask,		XK_n,	spawn,		SHCMD("warpd --normal") },
     { MODKEY|ShiftMask,		XK_h,	spawn,		SHCMD("warpd --hint") },
     { MODKEY|ShiftMask,		XK_b,	spawn,		SHCMD("/home/vlad/Downloads/Anti-Porn-HOSTS-File/script.sh") },
+    { MODKEY|ShiftMask,		XK_t,	spawn,		SHCMD("/home/vlad/Downloads/dotfiles/scripts/pomodoro.sh") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)

@@ -6,10 +6,8 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-
 programmingFts =
-	{ "javascript", "typescript", "python", "c", "cpp", "lua", "typescriptreact", "javascriptreact", "json", "go" }
-
+	{ "javascript", "typescript", "python", "c", "cpp", "lua", "typescriptreact", "javascriptreact", "json", "go", "php" }
 
 require("options")
 require("mappings")
