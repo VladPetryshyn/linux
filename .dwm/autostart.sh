@@ -4,6 +4,8 @@ wal -R &
 flameshot &
 slstatus &
 pipewire-media-session &
-bash /home/vlad/.dwm/sleep.sh &
+# bash /home/vlad/.dwm/sleep.sh &
 # aw-qt &
-sleep 2s
+# sleep 2s
+xmodmap -e "keycode 108 = Super_L"
+xmodmap ~/.Xmodmap
